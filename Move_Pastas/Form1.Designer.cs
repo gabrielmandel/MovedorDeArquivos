@@ -37,8 +37,6 @@ namespace Move_Pastas
             this.btnSelecionaDestino = new System.Windows.Forms.Button();
             this.btnExecutar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.rdbCopiar = new System.Windows.Forms.RadioButton();
-            this.rdbMover = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +94,7 @@ namespace Move_Pastas
             // 
             // btnExecutar
             // 
-            this.btnExecutar.Location = new System.Drawing.Point(12, 154);
+            this.btnExecutar.Location = new System.Drawing.Point(12, 123);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(235, 57);
             this.btnExecutar.TabIndex = 6;
@@ -106,7 +104,7 @@ namespace Move_Pastas
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(274, 154);
+            this.btnSair.Location = new System.Drawing.Point(274, 123);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(235, 57);
             this.btnSair.TabIndex = 7;
@@ -114,35 +112,11 @@ namespace Move_Pastas
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.button4_Click);
             // 
-            // rdbCopiar
-            // 
-            this.rdbCopiar.AutoSize = true;
-            this.rdbCopiar.Location = new System.Drawing.Point(15, 120);
-            this.rdbCopiar.Name = "rdbCopiar";
-            this.rdbCopiar.Size = new System.Drawing.Size(55, 17);
-            this.rdbCopiar.TabIndex = 8;
-            this.rdbCopiar.TabStop = true;
-            this.rdbCopiar.Text = "Copiar";
-            this.rdbCopiar.UseVisualStyleBackColor = true;
-            // 
-            // rdbMover
-            // 
-            this.rdbMover.AutoSize = true;
-            this.rdbMover.Location = new System.Drawing.Point(86, 120);
-            this.rdbMover.Name = "rdbMover";
-            this.rdbMover.Size = new System.Drawing.Size(55, 17);
-            this.rdbMover.TabIndex = 9;
-            this.rdbMover.TabStop = true;
-            this.rdbMover.Text = "Mover";
-            this.rdbMover.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 223);
-            this.Controls.Add(this.rdbMover);
-            this.Controls.Add(this.rdbCopiar);
+            this.ClientSize = new System.Drawing.Size(521, 199);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnExecutar);
             this.Controls.Add(this.btnSelecionaDestino);
@@ -170,8 +144,6 @@ namespace Move_Pastas
         private System.Windows.Forms.Button btnSelecionaDestino;
         private System.Windows.Forms.Button btnExecutar;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.RadioButton rdbCopiar;
-        private System.Windows.Forms.RadioButton rdbMover;
     }
 }
 
