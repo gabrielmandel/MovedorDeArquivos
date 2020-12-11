@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Move_Pastas.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,45 +18,47 @@ namespace Move_Pastas
         public frmFolderBlacklist()
         {
             InitializeComponent();
+
+
             //read the file
-            string arquivo = @"C:\Workspace\folderBlacklist.txt";
-            if (File.Exists(arquivo))
-            {
-                StreamReader file = new StreamReader(arquivo);
+            //string arquivo = @"C:\Workspace\folderBlacklist.txt";
+            //if (File.Exists(arquivo))
+            //{
+            //    StreamReader file = new StreamReader(arquivo);
 
-                //set list view in details mode
-                listFolderBlacklist.View = View.Details;
+            //    //set list view in details mode
+            //    listFolderBlacklist.View = View.Details;
 
-                //Set columns in listview
-                listFolderBlacklist.Columns.Add("Pastas");
+            //    //Set columns in listview
+            //    listFolderBlacklist.Columns.Add("Pastas");
 
-                string line = "";
-                //read text file line by line.     
-                while ((line = file.ReadLine()) != null)
-                {
-                    listFolderBlacklist.Items.Add(line);
+            //    string line = "";
+            //    //read text file line by line.     
+            //    while ((line = file.ReadLine()) != null)
+            //    {
+            //        listFolderBlacklist.Items.Add(line);
 
-                }
-                file.Close();
-            }
-            else
-            {
-                MessageBox.Show("Não foi encontrado arquvios em:" + arquivo);
-                Close();
-            }
+            //    }
+            //    file.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Não foi encontrado arquvios em:" + arquivo);
+            //    Close();
+            //}
         }
 
         private void addFolderBlacklist_Click(object sender, EventArgs e)
         {
-            string arquivo = @"C:\Workspace\folderBlacklist.txt";            
+            docConfigExclusao doc = new docConfigExclusao();
 
-            StreamWriter writer = new StreamWriter(arquivo,true);
+            doc.tipo = MoverEnums.indTipoArquivo.Directory.ToString();
+            doc.NomeExclusao = txtBlacklist.Text;
 
-            string blacklistFolderItem = txtBlacklist.Text;
-            listFolderBlacklist.Items.Add(blacklistFolderItem);
-            
-            writer.WriteLine(blacklistFolderItem);
-            writer.Close();
+            new docConfigExclusaoService().adicionarItem(doc);
+
+            MessageBox.Show("Item adicionado com sucesso:");
         }
+
     }
 }

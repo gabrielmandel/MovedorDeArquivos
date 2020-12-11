@@ -18,19 +18,19 @@ namespace Move_Pastas
         public frmMain()
         {
             InitializeComponent();
-            string arquivo = @"C:\Workspace\folderBlacklist.txt";
-            StreamReader proibido = new StreamReader(arquivo);
+            //string arquivo = @"C:\Workspace\folderBlacklist.txt";
+       //     StreamReader proibido = new StreamReader(arquivo);
 
             string line = "";
             //read text file line by line.     
-            while ((line = proibido.ReadLine()) != null)
-            {
-                naoPermitido.Add(line);
+            //while ((line = proibido.ReadLine()) != null)
+            //{
+            //    naoPermitido.Add(line);
 
-            }
-            naoPermitido.Add("teste");
+            //}
+           // naoPermitido.Add("teste");
   
-            arquivosProibidos.Add("emailFile.txt");
+           // arquivosProibidos.Add("emailFile.txt");
         }
 
         private void label2_Click(object sender, EventArgs e)
