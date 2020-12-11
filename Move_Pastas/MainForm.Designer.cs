@@ -37,7 +37,6 @@ namespace Move_Pastas
             this.btnSelecionaDestino = new System.Windows.Forms.Button();
             this.btnExecutar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.btnBlacklist = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -113,22 +112,11 @@ namespace Move_Pastas
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.button4_Click);
             // 
-            // btnBlacklist
-            // 
-            this.btnBlacklist.Location = new System.Drawing.Point(12, 123);
-            this.btnBlacklist.Name = "btnBlacklist";
-            this.btnBlacklist.Size = new System.Drawing.Size(90, 22);
-            this.btnBlacklist.TabIndex = 8;
-            this.btnBlacklist.Text = "Lista Negra";
-            this.btnBlacklist.UseVisualStyleBackColor = true;
-            this.btnBlacklist.Click += new System.EventHandler(this.btnBlacklist_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 220);
-            this.Controls.Add(this.btnBlacklist);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnExecutar);
             this.Controls.Add(this.btnSelecionaDestino);
@@ -156,7 +144,6 @@ namespace Move_Pastas
         private System.Windows.Forms.Button btnSelecionaDestino;
         private System.Windows.Forms.Button btnExecutar;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Button btnBlacklist;
     }
 }
 
