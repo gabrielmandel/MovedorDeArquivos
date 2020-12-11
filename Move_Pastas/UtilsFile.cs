@@ -9,7 +9,8 @@ namespace Move_Pastas
 {
     public class UtilsFile
     {
-        public void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs, List<string> blacklist = null)
+        public void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs,
+            List<string> blacklist = null, List<string> fileBlacklist = null)
         {
 
             var dir = new DirectoryInfo(sourceDirName);
@@ -36,13 +37,15 @@ namespace Move_Pastas
 
             foreach (var file in files)
             {
-                // Create the path to the new copy of the file.
-                var temppath = Path.Combine(destDirName, file.Name);
-
-                // Copy the file.
-                file.CopyTo(temppath, true);
+                bool filePermiteCopiar = fileBlacklist.Contains(file.Name);
+                if (!filePermiteCopiar)
+                {
+                    // Create the path to the new copy of the file.
+                    var temppath = Path.Combine(destDirName, file.Name);
+                    // Copy the file.
+                    file.CopyTo(temppath, true);
+                }
             }
-
             // If copySubDirs is true, copy the subdirectories.
             if (!copySubDirs) return;
 
@@ -55,7 +58,7 @@ namespace Move_Pastas
                     var temppath = Path.Combine(destDirName, subdir.Name);
 
                     // Copy the subdirectories.
-                    DirectoryCopy(subdir.FullName, temppath, copySubDirs, blacklist);
+                    DirectoryCopy(subdir.FullName, temppath, copySubDirs, blacklist, fileBlacklist);
                 }
 
             }

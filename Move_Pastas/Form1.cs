@@ -14,12 +14,14 @@ namespace Move_Pastas
     public partial class frmMain : Form
     {
         public List<string> naoPermitido = new List<string>();
-
+        public List<string> arquivosProibidos = new List<string>();
         public frmMain()
         {
             InitializeComponent();
             naoPermitido.Add("config");
             naoPermitido.Add("email");
+            arquivosProibidos.Add("emailFile.txt");
+            arquivosProibidos.Add("configFile.txt");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -63,13 +65,19 @@ namespace Move_Pastas
         {
             if (!string.IsNullOrEmpty(txtOrigem.Text) && !string.IsNullOrEmpty(txtDestino.Text))
             {
-                new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, naoPermitido);
+                new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, naoPermitido, arquivosProibidos);
                 MessageBox.Show("Copiados com Sucesso!!!");
             }
             else
             {
                 MessageBox.Show("Selecione uma pasta e um diretório destino");
             }
+        }
+
+        private void btnBlacklist_Click(object sender, EventArgs e)
+        {
+            frmBlacklist blacklist = new frmBlacklist();
+            blacklist.Show();
         }
     }
 }
