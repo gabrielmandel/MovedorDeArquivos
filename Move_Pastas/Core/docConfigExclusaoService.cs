@@ -24,8 +24,7 @@ namespace Move_Pastas.Core
 
             CadastrarConfigExclusao(exclusoes);
         }
-
-
+        
         public List<docConfigExclusao> BuscarItensCadastrados()
         {
             var arquivo = new Functions().BuscarArquivo(pathconfig);

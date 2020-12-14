@@ -73,6 +73,9 @@ namespace Move_Pastas
             this.grvListaExcluidos.Name = "grvListaExcluidos";
             this.grvListaExcluidos.Size = new System.Drawing.Size(552, 131);
             this.grvListaExcluidos.TabIndex = 5;
+            this.grvListaExcluidos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.grvListaExcluidos_CellBeginEdit);
+            this.grvListaExcluidos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvListaExcluidos_CellEndEdit);
+            this.grvListaExcluidos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvListaExcluidos_CellValueChanged);
             // 
             // rbPasta
             // 

@@ -15,6 +15,8 @@ namespace Move_Pastas
 {
     public partial class frmFolderBlacklist : Form
     {
+        public docConfigExclusao docExcluido;
+
         public frmFolderBlacklist()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace Move_Pastas
 
             doc.tipo = tipoArqauivo.ToString();
             doc.NomeExclusao = txtBlacklist.Text;
+            
 
             new docConfigExclusaoService().adicionarItem(doc);
 
@@ -44,5 +47,29 @@ namespace Move_Pastas
             CarregaTela();
         }
 
+        private void grvListaExcluidos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            var NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
+            var tipoArquivo = grvListaExcluidos.CurrentCell;
+            docExcluido = new docConfigExclusao();
+            docExcluido.NomeExclusao = NomeExclusao;
+           docExcluido.tipo = tipoArquivo.ToString();
+
+        }
+
+        private void grvListaExcluidos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            new docConfigExclusaoService().BuscarItensCadastrados();
+
+            docExcluido.NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
+
+            MessageBox.Show("Item editado com sucesso:");
+            CarregaTela();
+        }
+
+        private void grvListaExcluidos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
+        }
     }
 }
