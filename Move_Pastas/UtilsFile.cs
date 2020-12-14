@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Move_Pastas.Core;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Move_Pastas
     public class UtilsFile
     {
         public void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs,
-            List<string> blacklist = null, List<string> fileBlacklist = null)
+            List<docConfigExclusao> blacklist = null)
         {
 
             var dir = new DirectoryInfo(sourceDirName);
@@ -35,10 +36,17 @@ namespace Move_Pastas
             // Get the file contents of the directory to copy.
             var files = dir.GetFiles();
 
+            var listFiles = blacklist.Where(e => e.tipo.Equals(MoverEnums.indTipoArquivo.File.ToString()));
+
             foreach (var file in files)
             {
-                bool filePermiteCopiar = fileBlacklist.Contains(file.Name);
-                if (!filePermiteCopiar)
+                //verifica se nao esta na lista de excluidos
+              
+                var permiteCopiar = listFiles.Where(e => e.NomeExclusao.ToUpper().Equals(file.Name.ToUpper())
+                                                        || e.NomeExclusao.ToUpper().Equals(file.Extension.ToUpper()))
+                                              .FirstOrDefault();
+
+                if (permiteCopiar == null)
                 {
                     // Create the path to the new copy of the file.
                     var temppath = Path.Combine(destDirName, file.Name);
@@ -51,14 +59,17 @@ namespace Move_Pastas
 
             foreach (var subdir in dirs)
             {
-                bool permiteCopiar = blacklist.Contains(subdir.Name);
-                if (!permiteCopiar)
+                //verifica se nao esta na lista de excluidos
+                var permiteCopiar = blacklist.Where(e => e.NomeExclusao.ToUpper().Equals(subdir.Name.ToUpper()) 
+                                                    && e.tipo.Equals(MoverEnums.indTipoArquivo.Directory.ToString()))
+                                              .FirstOrDefault();
+                if (permiteCopiar == null)
                 {
                     // Create the subdirectory.
                     var temppath = Path.Combine(destDirName, subdir.Name);
 
                     // Copy the subdirectories.
-                    DirectoryCopy(subdir.FullName, temppath, copySubDirs, blacklist, fileBlacklist);
+                    DirectoryCopy(subdir.FullName, temppath, copySubDirs, blacklist);
                 }
 
             }

@@ -8,29 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.IO.Compression;
+using Move_Pastas.Core;
 
 namespace Move_Pastas
 {
     public partial class frmMain : Form
     {
         public List<string> naoPermitido = new List<string>();
-        public List<string> arquivosProibidos = new List<string>();
+        public List<docConfigExclusao> arquivosProibidos;
         public frmMain()
         {
+
             InitializeComponent();
-            //string arquivo = @"C:\Workspace\folderBlacklist.txt";
-       //     StreamReader proibido = new StreamReader(arquivo);
 
-            string line = "";
-            //read text file line by line.     
-            //while ((line = proibido.ReadLine()) != null)
-            //{
-            //    naoPermitido.Add(line);
+            arquivosProibidos = new docConfigExclusaoService().BuscarItensCadastrados();
 
-            //}
-           // naoPermitido.Add("teste");
-  
-           // arquivosProibidos.Add("emailFile.txt");
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -74,8 +68,11 @@ namespace Move_Pastas
         {
             if (!string.IsNullOrEmpty(txtOrigem.Text) && !string.IsNullOrEmpty(txtDestino.Text))
             {
-                new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, naoPermitido, arquivosProibidos);
+                new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, arquivosProibidos);
                 MessageBox.Show("Copiados com Sucesso!!!");
+
+                //compacta a versao gerada no directorio de destino
+                ZipFile.CreateFromDirectory(txtDestino.Text, txtOrigem.Text + "\\versaoCompactada.zip");
             }
             else
             {

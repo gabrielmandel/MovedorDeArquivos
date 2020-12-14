@@ -19,45 +19,29 @@ namespace Move_Pastas
         {
             InitializeComponent();
 
+            CarregaTela();
+         
+        }
 
-            //read the file
-            //string arquivo = @"C:\Workspace\folderBlacklist.txt";
-            //if (File.Exists(arquivo))
-            //{
-            //    StreamReader file = new StreamReader(arquivo);
-
-            //    //set list view in details mode
-            //    listFolderBlacklist.View = View.Details;
-
-            //    //Set columns in listview
-            //    listFolderBlacklist.Columns.Add("Pastas");
-
-            //    string line = "";
-            //    //read text file line by line.     
-            //    while ((line = file.ReadLine()) != null)
-            //    {
-            //        listFolderBlacklist.Items.Add(line);
-
-            //    }
-            //    file.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Não foi encontrado arquvios em:" + arquivo);
-            //    Close();
-            //}
+        private void CarregaTela()
+        {
+            grvListaExcluidos.DataSource = new docConfigExclusaoService().BuscarItensCadastrados();
+            rbPasta.Checked = true;
         }
 
         private void addFolderBlacklist_Click(object sender, EventArgs e)
         {
+
+            var tipoArqauivo = rbArquivo.Checked ? MoverEnums.indTipoArquivo.File : MoverEnums.indTipoArquivo.Directory;
             docConfigExclusao doc = new docConfigExclusao();
 
-            doc.tipo = MoverEnums.indTipoArquivo.Directory.ToString();
+            doc.tipo = tipoArqauivo.ToString();
             doc.NomeExclusao = txtBlacklist.Text;
 
             new docConfigExclusaoService().adicionarItem(doc);
 
             MessageBox.Show("Item adicionado com sucesso:");
+            CarregaTela();
         }
 
     }
