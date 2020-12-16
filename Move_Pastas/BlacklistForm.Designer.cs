@@ -36,15 +36,16 @@ namespace Move_Pastas
             this.rbPasta = new System.Windows.Forms.RadioButton();
             this.rbArquivo = new System.Windows.Forms.RadioButton();
             this.gbTipo = new System.Windows.Forms.GroupBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvListaExcluidos)).BeginInit();
             this.gbTipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // addFolderBlacklist
             // 
-            this.addFolderBlacklist.Location = new System.Drawing.Point(432, 155);
+            this.addFolderBlacklist.Location = new System.Drawing.Point(462, 155);
             this.addFolderBlacklist.Name = "addFolderBlacklist";
-            this.addFolderBlacklist.Size = new System.Drawing.Size(135, 48);
+            this.addFolderBlacklist.Size = new System.Drawing.Size(105, 48);
             this.addFolderBlacklist.TabIndex = 1;
             this.addFolderBlacklist.Text = "Adicionar";
             this.addFolderBlacklist.UseVisualStyleBackColor = true;
@@ -76,6 +77,7 @@ namespace Move_Pastas
             this.grvListaExcluidos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.grvListaExcluidos_CellBeginEdit);
             this.grvListaExcluidos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvListaExcluidos_CellEndEdit);
             this.grvListaExcluidos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvListaExcluidos_CellValueChanged);
+            this.grvListaExcluidos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grvListaExcluidos_RowHeaderMouseClick);
             // 
             // rbPasta
             // 
@@ -110,10 +112,21 @@ namespace Move_Pastas
             this.gbTipo.TabStop = false;
             this.gbTipo.Text = "Tipo";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(351, 155);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(105, 48);
+            this.btnExcluir.TabIndex = 9;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // frmFolderBlacklist
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(579, 215);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.gbTipo);
             this.Controls.Add(this.grvListaExcluidos);
             this.Controls.Add(this.lblNomeExcluido);
@@ -139,5 +152,6 @@ namespace Move_Pastas
         private System.Windows.Forms.RadioButton rbPasta;
         private System.Windows.Forms.RadioButton rbArquivo;
         private System.Windows.Forms.GroupBox gbTipo;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

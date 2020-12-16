@@ -15,19 +15,28 @@ namespace Move_Pastas
 {
     public partial class frmFolderBlacklist : Form
     {
-        public docConfigExclusao docExcluido;
+        public docConfigExclusao cellEdit;
+        public List<docConfigExclusao> lista;
+        public docConfigExclusaoService exclusaoService;
+        //public docSequencialService idSequencial;
+        //public docSequencial id;
+        //public List<docSequencial> listaId;
 
         public frmFolderBlacklist()
         {
-            InitializeComponent();
+            exclusaoService = new docConfigExclusaoService();
+            lista = exclusaoService.BuscarItensCadastrados();
+           // listaId = idSequencial.BuscarIdsCadastrados();
 
-            CarregaTela();
-         
+            InitializeComponent();
+            CarregaTela();                    
+
         }
 
         private void CarregaTela()
         {
-            grvListaExcluidos.DataSource = new docConfigExclusaoService().BuscarItensCadastrados();
+
+            grvListaExcluidos.DataSource = exclusaoService.BuscarItensCadastrados();
             rbPasta.Checked = true;
         }
 
@@ -39,9 +48,8 @@ namespace Move_Pastas
 
             doc.tipo = tipoArqauivo.ToString();
             doc.NomeExclusao = txtBlacklist.Text;
-            
 
-            new docConfigExclusaoService().adicionarItem(doc);
+            exclusaoService.adicionarItem(doc);
 
             MessageBox.Show("Item adicionado com sucesso:");
             CarregaTela();
@@ -50,19 +58,32 @@ namespace Move_Pastas
         private void grvListaExcluidos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             var NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
-            var tipoArquivo = grvListaExcluidos.CurrentCell;
-            docExcluido = new docConfigExclusao();
-            docExcluido.NomeExclusao = NomeExclusao;
-           docExcluido.tipo = tipoArquivo.ToString();
+            var local = grvListaExcluidos.CurrentRow.Cells["tipo"].Value;
+            cellEdit = new docConfigExclusao();
+            cellEdit.NomeExclusao = NomeExclusao;
+            cellEdit.tipo = local.ToString();
 
         }
 
         private void grvListaExcluidos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            new docConfigExclusaoService().BuscarItensCadastrados();
+            docConfigExclusao exclusaoNovo = new docConfigExclusao();
+            lista = exclusaoService.BuscarItensCadastrados();
 
-            docExcluido.NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
+            var NomeAtualizado= grvListaExcluidos.CurrentCell.Value.ToString();
 
+            exclusaoNovo.NomeExclusao = NomeAtualizado;
+            exclusaoNovo.tipo = cellEdit.tipo;
+
+
+            var listaatualiza = lista.Where(o => o.NomeExclusao != cellEdit.NomeExclusao
+                                                    && o.tipo != cellEdit.tipo).ToList();
+
+
+            listaatualiza.Add(exclusaoNovo);
+
+            ///Chama o metodo para salvar a lista.
+            exclusaoService.CadastrarConfigExclusao(listaatualiza);
             MessageBox.Show("Item editado com sucesso:");
             CarregaTela();
         }
@@ -70,6 +91,40 @@ namespace Move_Pastas
         private void grvListaExcluidos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if(cellEdit != null)
+            {
+
+            docConfigExclusao excluirLinha = new docConfigExclusao();
+            lista = exclusaoService.BuscarItensCadastrados();
+
+
+            var listaAtualizada = lista.Where(o => o.NomeExclusao != cellEdit.NomeExclusao
+                                                    && o.tipo != cellEdit.tipo).ToList();
+
+            listaAtualizada.Remove(excluirLinha);
+            MessageBox.Show("Item Excluído");
+            exclusaoService.CadastrarConfigExclusao(listaAtualizada);
+            CarregaTela();
+            }
+            else
+            {
+
+            MessageBox.Show("Por favor, selecione uma linha!");
+            }
+        }
+
+        private void grvListaExcluidos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var NomeExclusao = grvListaExcluidos.CurrentRow.Cells["NomeExclusao"].Value.ToString();
+            //var local = grvListaExcluidos.CurrentRow.Cells["tipo"].Value;
+            cellEdit = new docConfigExclusao();
+
+            cellEdit.NomeExclusao = NomeExclusao;
+            //cellEdit.tipo = local.ToString();
         }
     }
 }

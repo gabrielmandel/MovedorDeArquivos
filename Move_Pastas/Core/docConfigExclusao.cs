@@ -8,7 +8,9 @@ namespace Move_Pastas.Core
 {
     public class docConfigExclusao
     {
+
         public string tipo { get; set; }
         public string NomeExclusao { get; set; }
+
     }
 }

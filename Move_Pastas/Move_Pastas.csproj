@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\docConfigExclusaoService.cs" />
+    <Compile Include="Core\docSequencial.cs" />
+    <Compile Include="Core\docSequencialService.cs" />
     <Compile Include="Core\Functions.cs" />
     <Compile Include="Core\MoverEnums.cs" />
     <Compile Include="Core\docConfigExclusao.cs" />

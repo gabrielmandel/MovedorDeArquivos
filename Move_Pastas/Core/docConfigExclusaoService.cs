@@ -23,14 +23,15 @@ namespace Move_Pastas.Core
             exclusoes.Add(exclusao);
 
             CadastrarConfigExclusao(exclusoes);
-        }
-        
+        }    
+           
         public List<docConfigExclusao> BuscarItensCadastrados()
         {
             var arquivo = new Functions().BuscarArquivo(pathconfig);
 
             if (arquivo != null)
             {
+                
                 return  JsonConvert.DeserializeObject<List<docConfigExclusao>>(arquivo);
             }
 
