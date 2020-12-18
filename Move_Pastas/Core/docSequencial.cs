@@ -19,10 +19,15 @@ namespace Move_Pastas.Core
         }
 
         public void GerarId()
-        {
-            int ultimoID = 0; // pegar ultimo valor da lista
+        {            
+            List<docConfigExclusao> listaExclusao = new docConfigExclusaoService().BuscarItensCadastrados();
+            id = 0;
+            foreach (var item in listaExclusao)
+            {                
+                 id = id + 1;
+                 
+            }
 
-            int idAtual = ultimoID + 1;
         }
     }
 }

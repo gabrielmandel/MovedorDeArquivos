@@ -13,26 +13,7 @@ namespace Move_Pastas.Core
         
 
         private string pathconfig = "configId.json";
-        public void adicionarItem(docSequencial id)
-        {
-            List<docSequencial> ids = this.BuscarIdsCadastrados();
-
-            if (ids == null)
-            {
-                ids = new List<docSequencial>();
-            }
-
-            List<docConfigExclusao> lista = new docConfigExclusaoService().BuscarItensCadastrados();
-
-            foreach (var item in lista)
-            {
-                ids.Add(id);
-            }
-            
-
-            CadastrarConfigExclusao(ids);
-        }
-
+    
         public List<docSequencial> BuscarIdsCadastrados()
         {
             var arquivo = new Functions().BuscarArquivo(pathconfig);
@@ -41,6 +22,8 @@ namespace Move_Pastas.Core
             {
                 return JsonConvert.DeserializeObject<List<docSequencial>>(arquivo);
             }
+
+
 
             return null;
         }

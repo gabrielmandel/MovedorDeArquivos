@@ -26,7 +26,7 @@ namespace Move_Pastas
         {
             exclusaoService = new docConfigExclusaoService();
             lista = exclusaoService.BuscarItensCadastrados();
-           // listaId = idSequencial.BuscarIdsCadastrados();
+            //listaId = idSequencial.BuscarIdsCadastrados();
 
             InitializeComponent();
             CarregaTela();                    
@@ -35,7 +35,7 @@ namespace Move_Pastas
 
         private void CarregaTela()
         {
-
+                      
             grvListaExcluidos.DataSource = exclusaoService.BuscarItensCadastrados();
             rbPasta.Checked = true;
         }

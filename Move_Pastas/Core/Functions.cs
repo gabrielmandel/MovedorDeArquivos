@@ -29,7 +29,7 @@ namespace Move_Pastas.Core.functions
 
         public string EcreverArquivo(string path, string json)
         {
-            string capPath = (new Uri(_dirProjeto + path)).LocalPath;
+            string capPath = new Uri(_dirProjeto + path).LocalPath;
             if (!File.Exists(capPath))
             {
                 using (File.Create(capPath))
@@ -38,6 +38,19 @@ namespace Move_Pastas.Core.functions
             }
 
             File.WriteAllText(capPath, json);
+
+            return null;
+        }
+        public string EscreverArquivoId(string path, string json)
+        {
+            string capPath = new Uri(_dirProjeto + path).LocalPath;
+            if (!File.Exists(capPath))
+            {
+                using (File.Create(capPath))
+                {
+
+                };
+            }
 
             return null;
         }
