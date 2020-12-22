@@ -11,6 +11,7 @@ namespace Move_Pastas.Core
     public class docConfigExclusaoService
     {
         private string pathconfig = "configExclusao.json";
+        
         public void adicionarItem(docConfigExclusao exclusao)
         {
             List<docConfigExclusao> exclusoes =  this.BuscarItensCadastrados();

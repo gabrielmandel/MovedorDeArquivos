@@ -36,7 +36,6 @@ namespace Move_Pastas
             this.btnSelecionaOrigem = new System.Windows.Forms.Button();
             this.btnSelecionaDestino = new System.Windows.Forms.Button();
             this.btnExecutar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -94,7 +93,7 @@ namespace Move_Pastas
             // 
             // btnExecutar
             // 
-            this.btnExecutar.Location = new System.Drawing.Point(12, 151);
+            this.btnExecutar.Location = new System.Drawing.Point(12, 113);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(235, 57);
             this.btnExecutar.TabIndex = 6;
@@ -102,22 +101,12 @@ namespace Move_Pastas
             this.btnExecutar.UseVisualStyleBackColor = true;
             this.btnExecutar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(274, 151);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(235, 57);
-            this.btnSair.TabIndex = 7;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.button4_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 220);
-            this.Controls.Add(this.btnSair);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(216)))), ((int)(((byte)(221)))));
+            this.ClientSize = new System.Drawing.Size(531, 195);
             this.Controls.Add(this.btnExecutar);
             this.Controls.Add(this.btnSelecionaDestino);
             this.Controls.Add(this.btnSelecionaOrigem);
@@ -128,7 +117,7 @@ namespace Move_Pastas
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "Movedor de pastas PRO 2077";
+            this.Text = "Publicar";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +132,6 @@ namespace Move_Pastas
         private System.Windows.Forms.Button btnSelecionaOrigem;
         private System.Windows.Forms.Button btnSelecionaDestino;
         private System.Windows.Forms.Button btnExecutar;
-        private System.Windows.Forms.Button btnSair;
     }
 }
 

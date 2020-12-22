@@ -41,18 +41,6 @@ namespace Move_Pastas.Core.functions
 
             return null;
         }
-        public string EscreverArquivoId(string path, string json)
-        {
-            string capPath = new Uri(_dirProjeto + path).LocalPath;
-            if (!File.Exists(capPath))
-            {
-                using (File.Create(capPath))
-                {
-
-                };
-            }
-
-            return null;
-        }
+       
     }
 }

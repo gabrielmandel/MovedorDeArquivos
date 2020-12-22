@@ -18,16 +18,18 @@ namespace Move_Pastas.Core
             }
         }
 
-        public void GerarId()
+        public void GerarId<T>()
         {            
             List<docConfigExclusao> listaExclusao = new docConfigExclusaoService().BuscarItensCadastrados();
-            id = 0;
-            foreach (var item in listaExclusao)
-            {                
-                 id = id + 1;
-                 
+            
+            if (listaExclusao != null)
+            {
+                this.id = listaExclusao.Count + 1;
             }
-
+            else
+            {
+                this.id = 1;
+            }        
         }
     }
 }

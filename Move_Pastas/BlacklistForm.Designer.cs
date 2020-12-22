@@ -125,7 +125,8 @@ namespace Move_Pastas
             // frmFolderBlacklist
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(579, 215);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(216)))), ((int)(((byte)(221)))));
+            this.ClientSize = new System.Drawing.Size(594, 275);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.gbTipo);
             this.Controls.Add(this.grvListaExcluidos);
@@ -135,7 +136,7 @@ namespace Move_Pastas
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFolderBlacklist";
-            this.Text = "Lista Negra Pastas";
+            this.Text = "Configuração";
             ((System.ComponentModel.ISupportInitialize)(this.grvListaExcluidos)).EndInit();
             this.gbTipo.ResumeLayout(false);
             this.gbTipo.PerformLayout();
