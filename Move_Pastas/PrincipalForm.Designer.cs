@@ -188,7 +188,6 @@
             this.Controls.Add(this.panelMenu);
             this.Name = "PrincipalForm";
             this.Text = "Movedor de Arquivos";
-            this.TransparencyKey = System.Drawing.Color.Transparent;
             this.panelMenu.ResumeLayout(false);
             this.paneLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.boxLogo)).EndInit();
