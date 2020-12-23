@@ -18,15 +18,13 @@ namespace Move_Pastas
         public docConfigExclusao cellEdit;
         public List<docConfigExclusao> lista;
         public docConfigExclusaoService exclusaoService;
-        //public docSequencialService idSequencial;
-        //public docSequencial id;
-        //public List<docSequencial> listaId;
-
+      
+        public docCadastroDbService cadastroService;
         public frmFolderBlacklist()
         {
             exclusaoService = new docConfigExclusaoService();
             lista = exclusaoService.BuscarItensCadastrados();
-            //listaId = idSequencial.BuscarIdsCadastrados();
+            cadastroService = new docCadastroDbService();
 
             InitializeComponent();
             CarregaTela();                    
@@ -34,16 +32,14 @@ namespace Move_Pastas
         }
 
         private void CarregaTela()
-        {
-                      
-           grvListaExcluidos.DataSource = exclusaoService.BuscarItensCadastrados();
-           
+        {                      
+            grvListaExcluidos.DataSource = exclusaoService.BuscarItensCadastrados();
+            grvListaExcluidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             rbPasta.Checked = true;
         }
 
         private void addFolderBlacklist_Click(object sender, EventArgs e)
         {
-
             var tipoArqauivo = rbArquivo.Checked ? MoverEnums.indTipoArquivo.File : MoverEnums.indTipoArquivo.Directory;
             docConfigExclusao doc = new docConfigExclusao();
 

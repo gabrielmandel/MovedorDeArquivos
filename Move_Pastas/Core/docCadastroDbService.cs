@@ -21,16 +21,36 @@ namespace Move_Pastas.Core
                 itensDb = new List<docCadastroDb>();
             }
 
+            if (cadastro.id == null)
+            {
+                cadastro.GerarId();
+            }
+            else
+            {
+                itensDb = itensDb.Where(o => o.id != cadastro.id).ToList();
+            }
+
             itensDb.Add(cadastro);
 
             CadastrarItens(itensDb);
+        }
+
+        public docCadastroDb ObterCadastroDb(int id)
+        {
+            var lista = this.BuscarItensCadastrados();
+            if (lista.Count > 0)
+            {
+                return lista.Where(o => o.id == id).FirstOrDefault();
+            }
+
+            return null;
         }
 
         public List<docCadastroDb> BuscarItensCadastrados()
         {
             var arquivo = new Functions().BuscarArquivo(pathconfig);
 
-            if(arquivo != null)
+            if (arquivo != null)
             {
                 return JsonConvert.DeserializeObject<List<docCadastroDb>>(arquivo);
             }

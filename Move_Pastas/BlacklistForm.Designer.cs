@@ -69,6 +69,8 @@ namespace Move_Pastas
             // 
             // grvListaExcluidos
             // 
+            this.grvListaExcluidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grvListaExcluidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvListaExcluidos.Location = new System.Drawing.Point(15, 9);
             this.grvListaExcluidos.Name = "grvListaExcluidos";
@@ -126,7 +128,7 @@ namespace Move_Pastas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(216)))), ((int)(((byte)(221)))));
-            this.ClientSize = new System.Drawing.Size(594, 275);
+            this.ClientSize = new System.Drawing.Size(584, 275);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.gbTipo);
             this.Controls.Add(this.grvListaExcluidos);

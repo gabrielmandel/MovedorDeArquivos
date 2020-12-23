@@ -17,26 +17,18 @@ namespace Move_Pastas
     {
         public List<string> naoPermitido = new List<string>();
         public List<docConfigExclusao> arquivosProibidos;
+        public docCadastroDbService cadastroService;
+
+
         public frmMain()
         {
-
-            InitializeComponent();
-
+            cadastroService = new docCadastroDbService();
             arquivosProibidos = new docConfigExclusaoService().BuscarItensCadastrados();
-
-
+            
+            InitializeComponent();
+            CarregarTela();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        
         private void btnSelecionaOrigem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog origem = new FolderBrowserDialog();
@@ -79,11 +71,21 @@ namespace Move_Pastas
                 MessageBox.Show("Selecione uma pasta e um diretório destino");
             }
         }
+        
+        private void CarregarTela()
+        {         
+            var items = cadastroService.BuscarItensCadastrados().ToList();
 
-        private void btnBlacklist_Click(object sender, EventArgs e)
+            items.Add(new docCadastroDb("Selecione", 0));
+
+            cboBancos.DataSource = items;
+            cboBancos.DisplayMember = "NomeSite";
+            cboBancos.ValueMember = "id";
+            cboBancos.SelectedValue = 0;
+        }
+        private void cboBancos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            frmFolderBlacklist blacklist = new frmFolderBlacklist();
-            blacklist.Show();
+
         }
     }
 }

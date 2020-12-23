@@ -36,6 +36,10 @@ namespace Move_Pastas
             this.btnSelecionaOrigem = new System.Windows.Forms.Button();
             this.btnSelecionaDestino = new System.Windows.Forms.Button();
             this.btnExecutar = new System.Windows.Forms.Button();
+            this.cboBancos = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +59,6 @@ namespace Move_Pastas
             this.label2.Size = new System.Drawing.Size(129, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Selecione a pasta destino";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtOrigem
             // 
@@ -101,12 +104,43 @@ namespace Move_Pastas
             this.btnExecutar.UseVisualStyleBackColor = true;
             this.btnExecutar.Click += new System.EventHandler(this.button3_Click);
             // 
+            // cboBancos
+            // 
+            this.cboBancos.BackColor = System.Drawing.SystemColors.Control;
+            this.cboBancos.FormattingEnabled = true;
+            this.cboBancos.Location = new System.Drawing.Point(6, 19);
+            this.cboBancos.Name = "cboBancos";
+            this.cboBancos.Size = new System.Drawing.Size(220, 21);
+            this.cboBancos.TabIndex = 7;
+            this.cboBancos.SelectedIndexChanged += new System.EventHandler(this.cboBancos_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.cboBancos);
+            this.groupBox1.Location = new System.Drawing.Point(15, 191);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(494, 99);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Atualização de Banco";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(371, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 36);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Publicar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(216)))), ((int)(((byte)(221)))));
-            this.ClientSize = new System.Drawing.Size(531, 195);
+            this.ClientSize = new System.Drawing.Size(534, 418);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExecutar);
             this.Controls.Add(this.btnSelecionaDestino);
             this.Controls.Add(this.btnSelecionaOrigem);
@@ -118,6 +152,7 @@ namespace Move_Pastas
             this.MinimizeBox = false;
             this.Name = "frmMain";
             this.Text = "Publicar";
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +167,9 @@ namespace Move_Pastas
         private System.Windows.Forms.Button btnSelecionaOrigem;
         private System.Windows.Forms.Button btnSelecionaDestino;
         private System.Windows.Forms.Button btnExecutar;
+        private System.Windows.Forms.ComboBox cboBancos;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
