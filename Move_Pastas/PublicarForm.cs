@@ -18,10 +18,19 @@ namespace Move_Pastas
         public frmMain()
         {
             InitializeComponent();
-            naoPermitido.Add("config");
-            naoPermitido.Add("email");
-            arquivosProibidos.Add("emailFile.txt");
-            arquivosProibidos.Add("configFile.txt");
+            //string arquivo = @"C:\Workspace\folderBlacklist.txt";
+            //StreamReader proibido = new StreamReader(arquivo);
+
+            //string line = "";
+            //read text file line by line.     
+            //while ((line = proibido.ReadLine()) != null)
+            //{
+            //    naoPermitido.Add(line);
+
+            //}
+           // naoPermitido.Add("teste");
+  
+           // arquivosProibidos.Add("emailFile.txt");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -76,7 +85,7 @@ namespace Move_Pastas
 
         private void btnBlacklist_Click(object sender, EventArgs e)
         {
-            frmBlacklist blacklist = new frmBlacklist();
+            frmFolderBlacklist blacklist = new frmFolderBlacklist();
             blacklist.Show();
         }
     }

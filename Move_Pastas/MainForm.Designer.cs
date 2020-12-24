@@ -36,8 +36,10 @@ namespace Move_Pastas
             this.btnSelecionaOrigem = new System.Windows.Forms.Button();
             this.btnSelecionaDestino = new System.Windows.Forms.Button();
             this.btnExecutar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnBlacklist = new System.Windows.Forms.Button();
+            this.cboBancos = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +59,6 @@ namespace Move_Pastas
             this.label2.Size = new System.Drawing.Size(129, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Selecione a pasta destino";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtOrigem
             // 
@@ -95,7 +96,7 @@ namespace Move_Pastas
             // 
             // btnExecutar
             // 
-            this.btnExecutar.Location = new System.Drawing.Point(12, 151);
+            this.btnExecutar.Location = new System.Drawing.Point(12, 113);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(235, 57);
             this.btnExecutar.TabIndex = 6;
@@ -103,33 +104,43 @@ namespace Move_Pastas
             this.btnExecutar.UseVisualStyleBackColor = true;
             this.btnExecutar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnSair
+            // cboBancos
             // 
-            this.btnSair.Location = new System.Drawing.Point(274, 151);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(235, 57);
-            this.btnSair.TabIndex = 7;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.button4_Click);
+            this.cboBancos.BackColor = System.Drawing.SystemColors.Control;
+            this.cboBancos.FormattingEnabled = true;
+            this.cboBancos.Location = new System.Drawing.Point(6, 19);
+            this.cboBancos.Name = "cboBancos";
+            this.cboBancos.Size = new System.Drawing.Size(220, 21);
+            this.cboBancos.TabIndex = 7;
+            this.cboBancos.SelectedIndexChanged += new System.EventHandler(this.cboBancos_SelectedIndexChanged);
             // 
-            // btnBlacklist
+            // groupBox1
             // 
-            this.btnBlacklist.Location = new System.Drawing.Point(12, 123);
-            this.btnBlacklist.Name = "btnBlacklist";
-            this.btnBlacklist.Size = new System.Drawing.Size(90, 22);
-            this.btnBlacklist.TabIndex = 8;
-            this.btnBlacklist.Text = "Lista Negra";
-            this.btnBlacklist.UseVisualStyleBackColor = true;
-            this.btnBlacklist.Click += new System.EventHandler(this.btnBlacklist_Click);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.cboBancos);
+            this.groupBox1.Location = new System.Drawing.Point(15, 191);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(494, 99);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Atualização de Banco";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(371, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 36);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Publicar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 220);
-            this.Controls.Add(this.btnBlacklist);
-            this.Controls.Add(this.btnSair);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(216)))), ((int)(((byte)(221)))));
+            this.ClientSize = new System.Drawing.Size(534, 418);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExecutar);
             this.Controls.Add(this.btnSelecionaDestino);
             this.Controls.Add(this.btnSelecionaOrigem);
@@ -140,7 +151,8 @@ namespace Move_Pastas
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "Movedor de pastas PRO 2077";
+            this.Text = "Publicar";
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,8 +167,9 @@ namespace Move_Pastas
         private System.Windows.Forms.Button btnSelecionaOrigem;
         private System.Windows.Forms.Button btnSelecionaDestino;
         private System.Windows.Forms.Button btnExecutar;
-        private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Button btnBlacklist;
+        private System.Windows.Forms.ComboBox cboBancos;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
