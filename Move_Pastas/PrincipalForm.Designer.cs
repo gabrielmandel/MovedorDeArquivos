@@ -69,7 +69,7 @@
             this.brnCadastrarDb.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.brnCadastrarDb.IconSize = 28;
             this.brnCadastrarDb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.brnCadastrarDb.Location = new System.Drawing.Point(0, 149);
+            this.brnCadastrarDb.Location = new System.Drawing.Point(0, 163);
             this.brnCadastrarDb.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.brnCadastrarDb.Name = "brnCadastrarDb";
             this.brnCadastrarDb.Size = new System.Drawing.Size(140, 40);
@@ -92,7 +92,7 @@
             this.btnConfigurar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConfigurar.IconSize = 28;
             this.btnConfigurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfigurar.Location = new System.Drawing.Point(0, 109);
+            this.btnConfigurar.Location = new System.Drawing.Point(0, 123);
             this.btnConfigurar.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.btnConfigurar.Name = "btnConfigurar";
             this.btnConfigurar.Size = new System.Drawing.Size(140, 40);
@@ -115,7 +115,7 @@
             this.btnPublicar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPublicar.IconSize = 28;
             this.btnPublicar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPublicar.Location = new System.Drawing.Point(0, 69);
+            this.btnPublicar.Location = new System.Drawing.Point(0, 83);
             this.btnPublicar.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.btnPublicar.Name = "btnPublicar";
             this.btnPublicar.Size = new System.Drawing.Size(140, 40);
@@ -134,12 +134,12 @@
             this.paneLogo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.paneLogo.Location = new System.Drawing.Point(0, 0);
             this.paneLogo.Name = "paneLogo";
-            this.paneLogo.Size = new System.Drawing.Size(140, 69);
+            this.paneLogo.Size = new System.Drawing.Size(140, 83);
             this.paneLogo.TabIndex = 0;
             // 
             // boxLogo
             // 
-            this.boxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.boxLogo.Image = ((System.Drawing.Image)(resources.GetObject("boxLogo.Image")));
             this.boxLogo.Location = new System.Drawing.Point(0, 0);
             this.boxLogo.Name = "boxLogo";
@@ -186,6 +186,9 @@
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PrincipalForm";
             this.Text = "Movedor de Arquivos";
             this.panelMenu.ResumeLayout(false);
