@@ -60,11 +60,20 @@ namespace Move_Pastas
         {
             if (!string.IsNullOrEmpty(txtOrigem.Text) && !string.IsNullOrEmpty(txtDestino.Text))
             {
-                new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, arquivosProibidos);
-                MessageBox.Show("Copiados com Sucesso!!!");
+                //new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, arquivosProibidos);
+                string arquivoZip = txtDestino.Text + "\\versaoCompactada.zip";
 
-                //compacta a versao gerada no directorio de destino
-                ZipFile.CreateFromDirectory(txtDestino.Text, txtOrigem.Text + "\\versaoCompactada.zip");
+                if (File.Exists(arquivoZip))
+                {
+                    MessageBox.Show("O arquivo já existe no destino");
+                }
+                else
+                {
+                    //compacta a versao gerada no directorio de destino
+                    ZipFile.CreateFromDirectory(txtOrigem.Text, arquivoZip);
+                    MessageBox.Show("Publicado com Sucesso!!!");
+                }
+
             }
             else
             {
