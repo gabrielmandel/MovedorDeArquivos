@@ -60,8 +60,10 @@ namespace Move_Pastas
         {
             if (!string.IsNullOrEmpty(txtOrigem.Text) && !string.IsNullOrEmpty(txtDestino.Text))
             {
-                //new UtilsFile().DirectoryCopy(txtOrigem.Text, txtDestino.Text, true, arquivosProibidos);
+                string destinoCompac = txtDestino.Text + "compacto";
                 string arquivoZip = txtDestino.Text + "\\versaoCompactada.zip";
+
+                new UtilsFile().DirectoryCopy(txtOrigem.Text, destinoCompac, true, arquivosProibidos);
 
                 if (File.Exists(arquivoZip))
                 {
@@ -70,7 +72,8 @@ namespace Move_Pastas
                 else
                 {
                     //compacta a versao gerada no directorio de destino
-                    ZipFile.CreateFromDirectory(txtOrigem.Text, arquivoZip);
+                    ZipFile.CreateFromDirectory(destinoCompac, arquivoZip);
+                    Directory.Delete(destinoCompac, true);
                     MessageBox.Show("Publicado com Sucesso!!!");
                 }
 

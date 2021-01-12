@@ -70,6 +70,12 @@
     <Compile Include="Core\Functions.cs" />
     <Compile Include="Core\MoverEnums.cs" />
     <Compile Include="Core\docConfigExclusao.cs" />
+    <Compile Include="ViewDbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewDbForm.Designer.cs">
+      <DependentUpon>ViewDbForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDbForm.resx">
+      <DependentUpon>ViewDbForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

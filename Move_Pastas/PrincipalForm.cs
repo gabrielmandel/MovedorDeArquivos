@@ -42,10 +42,14 @@ namespace Move_Pastas
 
         private void brnCadastrarDb_Click(object sender, EventArgs e)
         {
-            CadastroDbForm cadastroDb = new CadastroDbForm();
+            ViewDbForm viewDb = new ViewDbForm();
             views.AtivarBtn(sender, menuButton);
-            views.AbrirSubForm(cadastroDb, panelBody);
-            lblTituloHeader.Text = cadastroDb.Text;
+            views.AbrirSubForm(viewDb, panelBody);
+            lblTituloHeader.Text = viewDb.Text;
+            //CadastroDbForm cadastroDb = new CadastroDbForm();
+            //views.AtivarBtn(sender, menuButton);
+            //views.AbrirSubForm(cadastroDb, panelBody);
+            //lblTituloHeader.Text = cadastroDb.Text;
         }
     }
 }

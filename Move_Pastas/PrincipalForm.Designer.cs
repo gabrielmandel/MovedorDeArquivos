@@ -74,7 +74,7 @@
             this.brnCadastrarDb.Name = "brnCadastrarDb";
             this.brnCadastrarDb.Size = new System.Drawing.Size(140, 40);
             this.brnCadastrarDb.TabIndex = 5;
-            this.brnCadastrarDb.Text = "Cadastrar DB";
+            this.brnCadastrarDb.Text = "Database";
             this.brnCadastrarDb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.brnCadastrarDb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.brnCadastrarDb.UseVisualStyleBackColor = true;

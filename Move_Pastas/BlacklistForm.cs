@@ -33,8 +33,7 @@ namespace Move_Pastas
 
         private void CarregaTela()
         {                      
-            grvListaExcluidos.DataSource = exclusaoService.BuscarItensCadastrados();
-            grvListaExcluidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grvListaExcluidos.DataSource = exclusaoService.BuscarItensCadastrados();         
             rbPasta.Checked = true;
         }
 

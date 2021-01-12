@@ -71,6 +71,7 @@ namespace Move_Pastas
             // 
             this.grvListaExcluidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grvListaExcluidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvListaExcluidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvListaExcluidos.Location = new System.Drawing.Point(15, 9);
             this.grvListaExcluidos.Name = "grvListaExcluidos";
