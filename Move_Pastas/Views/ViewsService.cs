@@ -18,6 +18,10 @@ namespace Move_Pastas.Views
         private IconButton btnAtual;
         private Form formAtual;
         
+        public void InsereMenu()
+        {
+
+        }
         public void AbrirSubForm(Form subForm, Panel painel)
         {
             //Abrir apenas um Form

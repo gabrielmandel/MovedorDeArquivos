@@ -18,8 +18,8 @@ namespace Move_Pastas
         public docConfigExclusao cellEdit;
         public List<docConfigExclusao> lista;
         public docConfigExclusaoService exclusaoService;
-      
         public docCadastroDbService cadastroService;
+
         public frmFolderBlacklist()
         {
             exclusaoService = new docConfigExclusaoService();
@@ -42,8 +42,8 @@ namespace Move_Pastas
             var tipoArqauivo = rbArquivo.Checked ? MoverEnums.indTipoArquivo.File : MoverEnums.indTipoArquivo.Directory;
             docConfigExclusao doc = new docConfigExclusao();
 
-            doc.tipo = tipoArqauivo.ToString();
-            doc.NomeExclusao = txtBlacklist.Text;
+            doc.Tipo = tipoArqauivo.ToString();
+            doc.Nome = txtBlacklist.Text;
 
             exclusaoService.adicionarItem(doc);
 
@@ -56,8 +56,8 @@ namespace Move_Pastas
             var NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
             var local = grvListaExcluidos.CurrentRow.Cells["tipo"].Value;
             cellEdit = new docConfigExclusao();
-            cellEdit.NomeExclusao = NomeExclusao;
-            cellEdit.tipo = local.ToString();
+            cellEdit.Nome = NomeExclusao;
+            cellEdit.Tipo = local.ToString();
 
         }
 
@@ -68,12 +68,12 @@ namespace Move_Pastas
 
             var NomeAtualizado= grvListaExcluidos.CurrentCell.Value.ToString();
 
-            exclusaoNovo.NomeExclusao = NomeAtualizado;
-            exclusaoNovo.tipo = cellEdit.tipo;
+            exclusaoNovo.Nome = NomeAtualizado;
+            exclusaoNovo.Tipo = cellEdit.Tipo;
 
 
-            var listaatualiza = lista.Where(o => o.NomeExclusao != cellEdit.NomeExclusao
-                                                    && o.tipo != cellEdit.tipo).ToList();
+            var listaatualiza = lista.Where(o => o.Nome != cellEdit.Nome
+                                             && o.Tipo != cellEdit.Tipo).ToList();
 
 
             listaatualiza.Add(exclusaoNovo);
@@ -88,7 +88,7 @@ namespace Move_Pastas
         {
             var NomeExclusao = grvListaExcluidos.CurrentCell.Value.ToString();
         }
-
+        
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if(cellEdit != null)
@@ -98,8 +98,8 @@ namespace Move_Pastas
             lista = exclusaoService.BuscarItensCadastrados();
 
 
-            var listaAtualizada = lista.Where(o => o.NomeExclusao != cellEdit.NomeExclusao
-                                                    && o.tipo != cellEdit.tipo).ToList();
+            var listaAtualizada = lista.Where(o => o.Nome != cellEdit.Nome
+                                                    && o.Tipo != cellEdit.Tipo).ToList();
 
             listaAtualizada.Remove(excluirLinha);
             MessageBox.Show("Item Excluído");
@@ -119,7 +119,7 @@ namespace Move_Pastas
             //var local = grvListaExcluidos.CurrentRow.Cells["tipo"].Value;
             cellEdit = new docConfigExclusao();
 
-            cellEdit.NomeExclusao = NomeExclusao;
+            cellEdit.Nome = NomeExclusao;
             //cellEdit.tipo = local.ToString();
         }
     }

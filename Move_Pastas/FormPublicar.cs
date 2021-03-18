@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.IO.Compression;
 using Move_Pastas.Core;
+using Move_Pastas.Views;
 
 namespace Move_Pastas
 {
@@ -18,15 +19,18 @@ namespace Move_Pastas
         public List<string> naoPermitido = new List<string>();
         public List<docConfigExclusao> arquivosProibidos;
         public docCadastroDbService cadastroService;
+        ViewsService views = new ViewsService();
 
-
+        //Form menu configurar parametro de construção para controles
         public frmMain()
         {
             cadastroService = new docCadastroDbService();
             arquivosProibidos = new docConfigExclusaoService().BuscarItensCadastrados();
-            
             InitializeComponent();
             CarregarTela();
+            Form menu = new FormMenu(this);
+            views.AbrirSubForm(menu,panelMenu);
+           
         }
         
         private void btnSelecionaOrigem_Click(object sender, EventArgs e)
@@ -55,8 +59,7 @@ namespace Move_Pastas
                 txtDestino.Text = destino.SelectedPath;
             }
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btnExecutar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtOrigem.Text) && !string.IsNullOrEmpty(txtDestino.Text))
             {
@@ -83,7 +86,7 @@ namespace Move_Pastas
                 MessageBox.Show("Selecione uma pasta e um diretório destino");
             }
         }
-        
+                     
         private void CarregarTela()
         {         
             var items = cadastroService.BuscarItensCadastrados().ToList();
@@ -95,9 +98,16 @@ namespace Move_Pastas
             cboBancos.ValueMember = "id";
             cboBancos.SelectedValue = 0;
         }
-        private void cboBancos_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();            
+        }
+
+        private void btnConfigurar_Click(object sender, EventArgs e)
+        {
+            Form config = new frmFolderBlacklist();
+            config.ShowDialog();
         }
     }
 }

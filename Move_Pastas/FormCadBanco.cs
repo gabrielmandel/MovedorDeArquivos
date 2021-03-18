@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Move_Pastas
 {
-    public partial class CadastroDbForm : Form
+    public partial class FormCadBanco : Form
     {
         public bool Carregando;
         public docCadastroDbService cadastroService;
 
-        public CadastroDbForm()
+        public FormCadBanco()
         {
             cadastroService = new docCadastroDbService();
             InitializeComponent();

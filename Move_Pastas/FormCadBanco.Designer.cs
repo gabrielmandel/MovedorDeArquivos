@@ -1,7 +1,7 @@
 ﻿
 namespace Move_Pastas
 {
-    partial class CadastroDbForm
+    partial class FormCadBanco
     {
         /// <summary>
         /// Required designer variable.

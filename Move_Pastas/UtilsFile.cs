@@ -36,15 +36,14 @@ namespace Move_Pastas
             // Get the file contents of the directory to copy.
             var files = dir.GetFiles();
 
-            var listFiles = blacklist.Where(e => e.tipo.Equals(MoverEnums.indTipoArquivo.File.ToString()));
+            var listFiles = blacklist.Where(e => e.Tipo.Equals(MoverEnums.indTipoArquivo.File.ToString()));
 
             foreach (var file in files)
             {
                 //verifica se nao esta na lista de excluidos
               
-                var permiteCopiar = listFiles.Where(e => e.NomeExclusao.ToUpper().Equals(file.Name.ToUpper())
-                                                        || e.NomeExclusao.ToUpper().Equals(file.Extension.ToUpper()))
-                                              .FirstOrDefault();
+                var permiteCopiar = listFiles.Where(e => e.Nome.ToUpper().Equals(file.Name.ToUpper())
+                                                    || e.Nome.ToUpper().Equals(file.Extension.ToUpper())).FirstOrDefault();
 
                 if (permiteCopiar == null)
                 {
@@ -60,9 +59,8 @@ namespace Move_Pastas
             foreach (var subdir in dirs)
             {
                 //verifica se nao esta na lista de excluidos
-                var permiteCopiar = blacklist.Where(e => e.NomeExclusao.ToUpper().Equals(subdir.Name.ToUpper()) 
-                                                    && e.tipo.Equals(MoverEnums.indTipoArquivo.Directory.ToString()))
-                                              .FirstOrDefault();
+                var permiteCopiar = blacklist.Where(e => e.Nome.ToUpper().Equals(subdir.Name.ToUpper()) 
+                                                    && e.Tipo.Equals(MoverEnums.indTipoArquivo.Directory.ToString())).FirstOrDefault();
                 if (permiteCopiar == null)
                 {
                     // Create the subdirectory.

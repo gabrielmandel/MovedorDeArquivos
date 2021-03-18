@@ -8,17 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Move_Pastas.Core;
+using Move_Pastas.Views;
 
 namespace Move_Pastas
 {
     public partial class ViewDbForm : Form
     {
         docCadastroDbService viewDb = new docCadastroDbService();
-        CadastroDbForm cadastroDb = new CadastroDbForm();
+        FormCadBanco cadastroDb = new FormCadBanco();
+        ViewsService views = new ViewsService();
+
         public ViewDbForm()
         {
             InitializeComponent();
             CarregaTela();
+            Form menu = new FormMenu(this);
+            views.AbrirSubForm(menu, panelMenu);
         }
         private void CarregaTela()
         {
@@ -27,6 +32,16 @@ namespace Move_Pastas
         }
 
         private void btnCadastrarNovo_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnNovoBanco_Click(object sender, EventArgs e)
         {
             cadastroDb.Show();
         }
